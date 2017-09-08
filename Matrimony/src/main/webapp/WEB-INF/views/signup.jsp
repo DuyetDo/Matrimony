@@ -88,7 +88,7 @@
 												<div class="form-group">
 													<form:input id="birthday" path="birthday"
 														class="datepicker form-control" type="text" name="birthday"
-														placeholder="Birthday" required="required"
+														placeholder="Birthday -- MM/dd/yyyy" required="required"
 														data-error="Birthday is required."/>
 												</div>
 												<div class="funkyradio">
