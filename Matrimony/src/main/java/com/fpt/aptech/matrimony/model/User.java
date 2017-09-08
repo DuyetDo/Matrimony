@@ -52,8 +52,9 @@ public class User implements Serializable{
 	@Column(name = "gender", nullable = false, length = 45)
 	private String gender;
 	
-	@Column(name = "age", nullable = false)
-	private int age;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "birthday", length = 19)
+	private Date birthday;
 	
 	@Column(name = "martial_status", length = 45)
 	private String martialStatus;
@@ -173,12 +174,12 @@ public class User implements Serializable{
 		this.gender = gender;
 	}
 
-	public int getAge() {
-		return age;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getMartialStatus() {

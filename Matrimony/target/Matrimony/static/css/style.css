@@ -207,6 +207,14 @@ img.profile-photo-sm{
 	border-radius: 50%;
 }
 
+img.profile-photo-smm{
+	margin:0;
+	padding:0;
+	height: 23px;
+	width: 23px;
+	border-radius: 50%;
+}
+
 img.profile-photo-xs{
   height: 30px;
   width: 30px;
