@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <%@ taglib prefix="sec"
-	uri="http://www.springframework.org/security/tags"%>      
+	uri="http://www.springframework.org/security/tags"%>  	    
     
     <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,13 +21,14 @@
 		<link rel="stylesheet" href="<c:url value='/static/css/bootstrap.min.css' />" />
 		<link rel="stylesheet" href="<c:url value='/static/css/style.css' />" />
 		<link rel="stylesheet" href="<c:url value='/static/css/ionicons.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/static/css/font-awesome.min.css' />" />
+    	<link rel="stylesheet" href="<c:url value='/static/css/font-awesome.min.css' />" />
+    	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--Google Webfont-->
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700' rel='stylesheet' type='text/css'>
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="<c:url value='/static/images/fav.png' />" />
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
 <!-- Header
     ================================================= -->
 		<header id="header" class="lazy-load">
@@ -91,15 +94,12 @@
 					<button class="btn-secondary">Signin</button>
 				</form>
 					</div>
-					<a href="#">Forgot password?</a>
-					<img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+					<a href="#">Forgotten account?</a><br/><br/>
+					<a href="<c:url value="/registration" />" id="test"><b style="font-size:14px;"> Signup now</b></a> 
+					<img class="form-shadow" src="<c:url value='/static/images/bottom-shadow.png' />" alt="" />
 				</div><!-- Sign In Form End -->
 
-        <svg class="arrows hidden-xs hidden-sm">
-          <path class="a1" d="M0 0 L30 32 L60 0"></path>
-          <path class="a2" d="M0 20 L30 52 L60 20"></path>
-          <path class="a3" d="M0 40 L30 72 L60 40"></path>
-        </svg>
+       
 			</div>
 		</section>
 
@@ -119,96 +119,173 @@
 
     <!-- Live Feed Section
     ================================================= -->
-		<section id="live-feed">
-			<div class="container wrapper">
-				<h1 class="section-title slideDown">live feed</h1>
-				<ul class="online-users list-inline slideUp">
-					<li><a href="#" title="Alexis Clark"><img src="images/users/user-5.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="James Carter"><img src="images/users/user-6.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Robert Cook"><img src="images/users/user-7.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Richard Bell"><img src="images/users/user-8.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Anna Young"><img src="images/users/user-9.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Julia Cox"><img src="images/users/user-10.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-				</ul>
-				<h2 class="sub-title">see what’s happening now</h2>
-				<div class="row">
-					<div class="col-md-4 col-sm-6 col-md-offset-2">
-						<div class="feed-item">
-							<img src="images/users/user-1.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sarah</a> just posted a photo from Moscow</p>
-								<p class="text-muted">20 Secs ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-4.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">John</a> Published a post from Sydney</p>
-								<p class="text-muted">1 min ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-10.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Julia</a> Updated her status from London</p>
-								<p class="text-muted">5 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-3.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sophia</a> Share a photo from Virginia</p>
-								<p class="text-muted">10 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-2.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Linda</a> just posted a photo from Toronto</p>
-								<p class="text-muted">20 mins ago</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="feed-item">
-							<img src="images/users/user-17.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Nora</a> Shared an article from Ohio</p>
-								<p class="text-muted">22 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-18.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Addison</a> Created a poll from Barcelona</p>
-								<p class="text-muted">23 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-11.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Diana</a> Posted a video from Captown</p>
-								<p class="text-muted">27 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-1.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sarah</a> Shared friend's post from Moscow</p>
-								<p class="text-muted">30 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-16.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Emma</a> Started a new job at Torronto</p>
-								<p class="text-muted">33 mins ago</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		
+<!-- 			<div id="page-contents-sg" class="container-fluid slideanim"> -->
+<!-- 				<div class="container"> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="col-md-10 col-md-offset-1"> -->
+<!-- 							<div class="contact-us"> -->
+<!-- 								<div class="row"> -->
+<!-- 									<div class="col-md-8 col-sm-7"> -->
+<!-- 										<h4 class="grey">Create a new account</h4> -->
+<%-- 										<form:form class="contact-form" method="POST" modelAttribute="signup"> --%>
+<!-- 											<div class="col-md-6 col-sm-6"> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="ssoid" path="ssoId" --%>
+<%-- 														type="text" class="form-control" --%>
+<%-- 														placeholder="User name" required="required" --%>
+<%-- 														data-error="User Name is required."/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="password" path="password" --%>
+<%-- 														type="text" name="password" class="form-control" --%>
+<%-- 														placeholder="Password" required="required" --%>
+<%-- 														data-error="Password is required."/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="firstname" path="firstName" --%>
+<%-- 														type="text" name="firstName" class="form-control" --%>
+<%-- 														placeholder="First name" required="required" --%>
+<%-- 														data-error="firstname is required."/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="lastname" path="lastName" --%>
+<%-- 														type="text" name="lastName" class="form-control" --%>
+<%-- 														placeholder="Last name" required="required" --%>
+<%-- 														data-error="Last name is required."/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="email" path="email" --%>
+<%-- 														type="text" name="email" class="form-control" --%>
+<%-- 														placeholder="Email" required="required" --%>
+<%-- 														data-error="Email is required."/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="birthday" path="birthday" --%>
+<%-- 														class="datepicker form-control" type="text" name="birthday" --%>
+<%-- 														placeholder="Birthday" required="required" --%>
+<%-- 														data-error="Birthday is required."/> --%>
+<!-- 												</div> -->
+<!-- <!-- 												<div class="form-group"> --> -->
+<%-- <%-- 													<label>Gender</label><br /><form:input id="male" --%> --%>
+<%-- <%-- 														type="radio" name="gender" path="gender" value="Male"/> Male  --%> --%>
+<%-- <%-- 														<form:input id="female" --%> --%>
+<%-- <%-- 														type="radio" name="gender" path="gender" value="Male"/> Female --%> --%>
+<!-- <!-- 												</div> --> -->
+		
+<!-- 											</div> -->
+		
+<!-- 											<div class="col-md-6 col-sm-6"> -->
+		
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="address" path="address" --%>
+<%-- 														type="text" name="address" class="form-control" --%>
+<%-- 														placeholder="Address" required="required" --%>
+<%-- 														data-error="Address is required."/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input path="contactNumber" --%>
+<%-- 														id="contact_number" type="text" name="contact_number" --%>
+<%-- 														class="form-control" --%>
+<%-- 														placeholder="Contact number" --%>
+<%-- 														required="required" data-error="Contact number is required."/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:input id="description" path="description" --%>
+<%-- 														type="text" name="description" class="form-control" --%>
+<%-- 														placeholder="Description"/> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:select path="motherTongue" multiple="false" --%>
+<%-- 														class="form-control" id="select"> --%>
+<%-- 														<form:option class="form-control" value="" --%>
+<%-- 															label="Choose your mother tongue" disabled="true" --%>
+<%-- 															selected="true"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Af-Soomaali" label="Af-Soomaali"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Afrikaans" label="Afrikaans"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Azərbaycan dili" label="Azərbaycan dili"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Bahasa Indonesia" label="Bahasa Indonesia"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Bahasa Melayu" label="Bahasa Melayu"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Basa Jawa" label="Basa Jawa"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Bisaya" label="Bisaya"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Bosanski" label="Bosanski"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Brezhoneg" label="Brezhoneg"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Corsu" label="Corsu"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Cymraeg" label="Cymraeg"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Dansk" label="Dansk"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Deutsch" label="Deutsch"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Eesti" label="Eesti"></form:option> --%>
+<%-- 														<form:option class="form-control" value="English (UK)" label="English (UK)"></form:option> --%>
+<%-- 														<form:option class="form-control" value="English (US)" label="English (US)"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Filipino" label="Filipino"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Brezhoneg" label="Brezhoneg"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Corsu" label="Corsu"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Cymraeg" label="Cymraeg"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Dansk" label="Dansk"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Deutsch" label="Deutsch"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Eesti" label="Eesti"></form:option> --%>
+<%--  										</form:select> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:select path="martialStatus" multiple="false" --%>
+<%-- 														class="form-control" id="sel1"> --%>
+<%-- 														<form:option class="form-control" value="" --%>
+<%-- 															label="Martial status" disabled="true" --%>
+<%-- 															selected="true"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Never Married" label="Never Married"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Divorced" label="Divorced"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Widowed" label="Widowed"></form:option> --%>
+<%-- 													</form:select> --%>
+<!-- 												</div> -->
+<!-- 												<div class="form-group"> -->
+<%-- 													<form:select path="countryLivingIn" multiple="false" --%>
+<%-- 														class="form-control" id="sel1"> --%>
+<%-- 														<form:option class="form-control" value="" --%>
+<%-- 															label="Country living in" disabled="true" --%>
+<%-- 															selected="true"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Australia" label="Australia"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Belgium" label="Belgium"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Brazil" label="Brazil"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Bulgaria" label="Bulgaria"></form:option> --%>
+<%-- 														<form:option class="form-control" value="England" label="England"></form:option> --%>
+<%-- 														<form:option class="form-control" value=" France" label=" France"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Germany" label="Germany"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Hong Kong" label="Hong Kong"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Indonesia" label="Indonesia"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Italy" label="Italy"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Japan" label="Japan"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Korea, South" label="Korea, South"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Laos" label="Laos"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Macau" label="Macau"></form:option> --%>
+<%-- 														<form:option class="form-control" value="New Zealand" label="New Zealand"></form:option> --%>
+<%-- 														<form:option class="form-control" value="USA" label="USA"></form:option> --%>
+<%-- 														<form:option class="form-control" value="Viet Nam" label="Viet Nam"></form:option> --%>
+<%-- 													</form:select> --%>
+<!-- 												</div> -->
+<!-- 											</div> -->
+<%-- 										</form:form> --%>
+<!-- 										<br /> -->
+		
+<!-- 									</div> -->
+								
+<!-- 								</div> -->
+<!-- 								<div class="funkyradio"> -->
+<!-- <!-- 									<div class="funkyradio-default"> --> -->
+<!-- <!-- 										<input type="radio" name="radio" id="radio1" /> <label --> -->
+<!-- <!-- 											for="radio1"> Monthly 50$</label> --> -->
+<!-- <!-- 									</div> --> -->
+<!-- <!-- 									<div class="funkyradio-primary"> --> -->
+<!-- <!-- 										<input type="radio" name="radio" id="radio2" checked /> <label --> -->
+<!-- <!-- 											for="radio2"> Yearly 500$</label> --> -->
+<!-- <!-- 									</div> --> -->
+<!-- 								</div> -->
+<!-- 								<button class="btn-primary">Register</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+	
 
     <!-- Footer
     ================================================= -->
@@ -286,5 +363,51 @@
     <script src="<c:url value='/static/js/jquery.appear.min.js'/>"></script>
 	<script src="<c:url value='/static/js/jquery.incremental-counter.js'/>"></script>
     <script src="<c:url value='/static/js/script.js'/>" src="js/script.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<script>
+		$( document ).ready(function() {
+			$(".datepicker").datepicker({
+				altFormat: "yy-mm-dd",
+				maxDate: "0d",
+				changeMonth : true,
+				changeYear : true,
+				showButtonPanel : true
+			});
+			
+			$("#test").on('click', function(event) {
+			    // Make sure this.hash has a value before overriding default behavior
+			    if (this.hash !== "") {
+			      // Prevent default anchor click behavior
+			      event.preventDefault();
+
+			      // Store hash
+			      var hash = this.hash;
+
+			      // Using jQuery's animate() method to add smooth page scroll
+			      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+			      $('html, body').animate({
+			        scrollTop: $(hash).offset().top
+			      }, 900, function(){
+			   
+			        // Add hash (#) to URL when done scrolling (default click behavior)
+			        window.location.hash = hash;
+			      });
+			    } // End if
+			  });
+			
+			$(window).scroll(function() {
+			    $(".slideanim").each(function(){
+			      var pos = $(this).offset().top;
+
+			      var winTop = $(window).scrollTop();
+			        if (pos < winTop + 600) {
+			          $(this).addClass("slide");
+			        }
+			    });
+			  });
+		});
+		
+	</script>
 </body>
 </html>

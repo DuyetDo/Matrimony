@@ -67,6 +67,33 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "usersList";
 	}
+	
+	@RequestMapping(value = { "/registration" }, method = RequestMethod.GET)
+	public String signup(ModelMap model) {
+		User user = new User();
+		model.addAttribute("signup", user);
+		return "signup";
+	}
+	
+	@RequestMapping(value = { "/registration" }, method = RequestMethod.POST)
+	public String register(@Valid User user, BindingResult result, ModelMap model) {
+
+		if (result.hasErrors()) {
+			return "signup";
+		}
+
+		if (!userService.isUserSSOUnique(user.getSsoId())) {
+			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
+					new String[] { user.getSsoId() }, Locale.getDefault()));
+			result.addError(ssoError);
+			return "signup";
+		}
+
+		userService.saveUser(user);
+
+		model.addAttribute("signup", user);
+		return "signup";
+	}
 
 	/**
 	 * This method will provide the medium to add a new user.
@@ -77,7 +104,7 @@ public class AppController {
 		model.addAttribute("user", user);
 		model.addAttribute("edit", false);
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "addUser";
+		return "index";
 	}
 
 	/**
@@ -88,14 +115,14 @@ public class AppController {
 	public String saveUser(@Valid User user, BindingResult result, ModelMap model) {
 
 		if (result.hasErrors()) {
-			return "addUser";
+			return "index";
 		}
 
 		if (!userService.isUserSSOUnique(user.getSsoId())) {
 			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",
 					new String[] { user.getSsoId() }, Locale.getDefault()));
 			result.addError(ssoError);
-			return "addUser";
+			return "index";
 		}
 
 		userService.saveUser(user);
@@ -104,7 +131,7 @@ public class AppController {
 		model.addAttribute("usersuccess",
 				"User " + user.getFirstName() + " " + user.getLastName() + " registered successfully");
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "userSuccess";
+		return "index";
 	}
 
 	/**
@@ -116,7 +143,7 @@ public class AppController {
 		model.addAttribute("user", user);
 		model.addAttribute("edit", true);
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "addUser";
+		return "index";
 	}
 
 	/**
@@ -127,7 +154,7 @@ public class AppController {
 	public String updateUser(@Valid User user, BindingResult result, ModelMap model, @PathVariable int id) {
 
 		if (result.hasErrors()) {
-			return "addUser";
+			return "index";
 		}
 
 		userService.updateUser(user);
@@ -138,7 +165,7 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 				
 		if (user.getSsoId().equals(getPrincipal())) {
-			return "userSuccess";
+			return "index";
 		} else {
 			return "redirect:/logout";
 		}
