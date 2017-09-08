@@ -19,13 +19,14 @@
 		<link rel="stylesheet" href="<c:url value='/static/css/bootstrap.min.css' />" />
 		<link rel="stylesheet" href="<c:url value='/static/css/style.css' />" />
 		<link rel="stylesheet" href="<c:url value='/static/css/ionicons.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/static/css/font-awesome.min.css' />" />
+    	<link rel="stylesheet" href="<c:url value='/static/css/font-awesome.min.css' />" />
+    	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--Google Webfont-->
 		<link href='https://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700' rel='stylesheet' type='text/css'>
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="<c:url value='/static/images/fav.png' />" />
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
 <!-- Header
     ================================================= -->
 		<header id="header" class="lazy-load">
@@ -91,6 +92,7 @@
 					<button class="btn-secondary">Signin</button>
 				</form>
 					</div>
+					<a href="#page-contents" id="test"><b style="font-size:14px;">Signup Now!</b></a> <br />
 					<a href="#">Forgot password?</a>
 					<img class="form-shadow" src="images/bottom-shadow.png" alt="" />
 				</div><!-- Sign In Form End -->
@@ -119,96 +121,179 @@
 
     <!-- Live Feed Section
     ================================================= -->
-		<section id="live-feed">
-			<div class="container wrapper">
-				<h1 class="section-title slideDown">live feed</h1>
-				<ul class="online-users list-inline slideUp">
-					<li><a href="#" title="Alexis Clark"><img src="images/users/user-5.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="James Carter"><img src="images/users/user-6.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Robert Cook"><img src="images/users/user-7.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Richard Bell"><img src="images/users/user-8.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Anna Young"><img src="images/users/user-9.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          <li><a href="#" title="Julia Cox"><img src="images/users/user-10.jpg" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-				</ul>
-				<h2 class="sub-title">see what’s happening now</h2>
-				<div class="row">
-					<div class="col-md-4 col-sm-6 col-md-offset-2">
-						<div class="feed-item">
-							<img src="images/users/user-1.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sarah</a> just posted a photo from Moscow</p>
-								<p class="text-muted">20 Secs ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-4.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">John</a> Published a post from Sydney</p>
-								<p class="text-muted">1 min ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-10.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Julia</a> Updated her status from London</p>
-								<p class="text-muted">5 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-3.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sophia</a> Share a photo from Virginia</p>
-								<p class="text-muted">10 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-2.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Linda</a> just posted a photo from Toronto</p>
-								<p class="text-muted">20 mins ago</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<div class="feed-item">
-							<img src="images/users/user-17.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Nora</a> Shared an article from Ohio</p>
-								<p class="text-muted">22 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-18.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Addison</a> Created a poll from Barcelona</p>
-								<p class="text-muted">23 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-11.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Diana</a> Posted a video from Captown</p>
-								<p class="text-muted">27 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-1.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Sarah</a> Shared friend's post from Moscow</p>
-								<p class="text-muted">30 mins ago</p>
-							</div>
-						</div>
-						<div class="feed-item">
-							<img src="images/users/user-16.jpg" alt="user" class="img-responsive profile-photo-sm" />
-							<div class="live-activity">
-								<p><a href="#" class="profile-link">Emma</a> Started a new job at Torronto</p>
-								<p class="text-muted">33 mins ago</p>
+		
+			<div id="page-contents" class="container-fluid slideanim">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="contact-us">
+								<div class="row">
+									<div class="col-md-8 col-sm-7">
+										<h4 class="grey">Leave a Message</h4>
+										<form class="contact-form">
+											<div class="col-md-6 col-sm-6">
+												<div class="form-group">
+													<i class="icon ion-person"></i> <input id="sso_id"
+														type="text" name="username" class="form-control"
+														placeholder="Enter your username *" required="required"
+														data-error="Username is required.">
+												</div>
+												<div class="form-group">
+													<i class="icon ion-email"></i> <input id="password"
+														type="text" name="password" class="form-control"
+														placeholder="Enter your password *" required="required"
+														data-error="password is required.">
+												</div>
+												<div class="form-group">
+													<i class="icon ion-android-call"></i> <input id="firstname"
+														type="text" name="firstname" class="form-control"
+														placeholder="Enter your firstname *" required="required"
+														data-error="firstname is required.">
+												</div>
+												<div class="form-group">
+													<i class="icon ion-android-call"></i> <input id="lastname"
+														type="text" name="lastname" class="form-control"
+														placeholder="Enter your lastname *" required="required"
+														data-error="lastname is required.">
+												</div>
+												<div class="form-group">
+													<i class="icon ion-android-call"></i> <input id="email"
+														type="text" name="email" class="form-control"
+														placeholder="Enter your email *" required="required"
+														data-error="email is required.">
+												</div>
+												<div class="form-group">
+													<i class="icon ion-android-call"></i> <input id="birthday"
+														class="datepicker form-control" type="text" name="birthday">
+												</div>
+												<div class="form-group">
+													<label>Gender</label><br /> Male: <input id="male"
+														type="radio" name="sex"> Female: <input id="female"
+														type="radio" name="sex">
+												</div>
+		
+											</div>
+		
+											<div class="col-md-6 col-sm-6">
+		
+												<div class="form-group">
+													<i class="icon ion-android-call"></i> <input id="address"
+														type="text" name="address" class="form-control"
+														placeholder="Enter your address *" required="required"
+														data-error="Address is required.">
+												</div>
+												<div class="form-group">
+													<i class="icon ion-android-call"></i> <input
+														id="contact_number" type="text" name="contact_number"
+														class="form-control"
+														placeholder="Enter your contact-number *"
+														required="required" data-error="Contact number is required.">
+												</div>
+												<div class="form-group">
+													<i class="icon ion-android-call"></i> <input id="description"
+														type="text" name="description" class="form-control"
+														placeholder="Enter your description">
+												</div>
+												<div class="form-group">
+													<label for="sel1">Mother Tongue (select one):</label> <select
+														class="form-control" id="sel1">
+														<option>Australia</option>
+														<option>Belgium</option>
+														<option>Brazil</option>
+														<option>Bulgaria</option>
+														<option>Germany</option>
+														<option>Hong Kong</option>
+														<option>Indonesia</option>
+														<option>Italy</option>
+														<option>Japan</option>
+														<option>Korea, South</option>
+														<option>Laos</option>
+														<option>Macau</option>
+														<option>New Zealand</option>
+														<option>USA</option>Australia
+														<option>Viet Nam</option>
+														<option>France</option>
+														<option>England</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="sel1">Martial Status (select one):</label> <select
+														class="form-control" id="sel1">
+														<option>Never Married</option>
+														<option>Divorced</option>
+														<option>Widowed</option>
+													</select>
+												</div>
+												<div class="form-group">
+													<label for="sel1">Select country (select one):</label> <select
+														class="form-control" id="sel1">
+														<option>Australia</option>
+														<option>Belgium</option>
+														<option>Brazil</option>
+														<option>Bulgaria</option>
+														<option>Germany</option>
+														<option>Hong Kong</option>
+														<option>Indonesia</option>
+														<option>Italy</option>
+														<option>Japan</option>
+														<option>Korea, South</option>
+														<option>Laos</option>
+														<option>Macau</option>
+														<option>New Zealand</option>
+														<option>USA</option>Australia
+														<option>Viet Nam</option>
+														<option>France</option>
+														<option>England</option>
+													</select>
+												</div>
+											</div>
+		
+										</form>
+										<br />
+		
+									</div>
+									<div class="col-md-4 col-sm-5">
+										<h4 class="grey">Reach Us</h4>
+										<div class="reach">
+											<span class="phone-icon"><i
+												class="icon ion-android-call"></i></span>
+											<p>+84 989123465</p>
+										</div>
+										<div class="reach">
+											<span class="phone-icon"><i class="icon ion-email"></i></span>
+											<p>team1@fpt.edu.vn</p>
+										</div>
+										<div class="reach">
+											<span class="phone-icon"><i
+												class="icon ion-ios-location"></i></span>
+											<p>Ton That Thuyet, Nam Tu Liem, Ha Noi</p>
+										</div>
+										<ul class="list-inline social-icons">
+											<li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+											<li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+											<li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
+											<li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+											<li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="funkyradio">
+									<div class="funkyradio-default">
+										<input type="radio" name="radio" id="radio1" /> <label
+											for="radio1">Monthly 50$</label>
+									</div>
+									<div class="funkyradio-primary">
+										<input type="radio" name="radio" id="radio2" checked /> <label
+											for="radio2">Yearly 500$</label>
+									</div>
+								</div>
+								<button class="btn-primary">Register</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
+	
 
     <!-- Footer
     ================================================= -->
@@ -286,5 +371,51 @@
     <script src="<c:url value='/static/js/jquery.appear.min.js'/>"></script>
 	<script src="<c:url value='/static/js/jquery.incremental-counter.js'/>"></script>
     <script src="<c:url value='/static/js/script.js'/>" src="js/script.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<script>
+		$( document ).ready(function() {
+			$(".datepicker").datepicker({
+				altFormat: "yy-mm-dd",
+				maxDate: "0d",
+				changeMonth : true,
+				changeYear : true,
+				showButtonPanel : true
+			});
+			
+			$("#test").on('click', function(event) {
+			    // Make sure this.hash has a value before overriding default behavior
+			    if (this.hash !== "") {
+			      // Prevent default anchor click behavior
+			      event.preventDefault();
+
+			      // Store hash
+			      var hash = this.hash;
+
+			      // Using jQuery's animate() method to add smooth page scroll
+			      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+			      $('html, body').animate({
+			        scrollTop: $(hash).offset().top
+			      }, 900, function(){
+			   
+			        // Add hash (#) to URL when done scrolling (default click behavior)
+			        window.location.hash = hash;
+			      });
+			    } // End if
+			  });
+			
+			$(window).scroll(function() {
+			    $(".slideanim").each(function(){
+			      var pos = $(this).offset().top;
+
+			      var winTop = $(window).scrollTop();
+			        if (pos < winTop + 600) {
+			          $(this).addClass("slide");
+			        }
+			    });
+			  });
+		});
+		
+	</script>
 </body>
 </html>
