@@ -48,7 +48,7 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right main-menu">
 			  <li class="dropdown"><a href="<c:url value="/" />"> <img
-						src="<c:url value='/static/images/users/user-1.jpg' />" alt=""
+						src="<c:url value='/static/images/users/user-21.jpg' />" alt=""
 						class="profile-photo-smm" /> ${loggedinuser}
 			  </a></li>
 				<sec:authorize access="hasRole('ADMIN')">
@@ -57,7 +57,7 @@
 
 				<li class="dropdown"><a href="index.html">Home</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="images/down-arrow.png" alt="" /></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="<c:url value='/static/images/down-arrow.png' />" alt="" /></span></a>
                   <ul class="dropdown-menu newsfeed-home">
                     <li><a href="newsfeed.html">Newsfeed</a></li>
                     <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
@@ -68,7 +68,7 @@
                   </ul>
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="images/down-arrow.png" alt="" /></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="<c:url value='/static/images/down-arrow.png' />" alt="" /></span></a>
                 <ul class="dropdown-menu login">
                   <li><a href="timeline.html">Timeline</a></li>
                   <li><a href="timeline-about.html">Timeline About</a></li>
@@ -81,7 +81,7 @@
             <form class="navbar-form navbar-right hidden-sm">
               <div class="form-group">
                 <i class="icon ion-android-search"></i>
-                <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+                <input type="text" class="form-control" placeholder="Search friends, photos, videos"><a href="<c:url value="/search" />">Search</a>
               </div>
             </form>
           </div><!-- /.navbar-collapse -->

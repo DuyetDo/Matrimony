@@ -15,12 +15,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @SuppressWarnings("serial")
 @Entity
@@ -39,20 +37,17 @@ public class User implements Serializable{
 	private String password;
 		
 	@NotBlank
-	@Column(name="FIRST_NAME", nullable=false, length = 30)
+	@Column(name="FIRST_NAME",length = 30)
 	private String firstName;
 
 	@NotBlank
-	@Column(name="LAST_NAME", nullable=false, length = 30)
+	@Column(name="LAST_NAME", length = 30)
 	private String lastName;
 	
-	@Column(name = "middle_name", length = 45)
-	private String middleName;
-	
-	@Column(name = "gender", nullable = false, length = 45)
+	@Column(name = "gender",length = 45)
 	private String gender;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "MM/dd/yyyy")
 	@Column(name = "birthday", length = 19)
 	private Date birthday;
 	
@@ -83,19 +78,16 @@ public class User implements Serializable{
 	@Column(name = "description", length = 4000)
 	private String description;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_datetime", length = 19)
 	private Date createDatetime;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "update_datetime", length = 19)
 	private Date updateDatetime;
 	
-	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "end_datetime", length = 19)
 	private Date endDatetime;
 	
-	@Column(name = "is_active", nullable = false)
+	@Column(name = "is_active")
 	private boolean isActive;
 
 	@Email
@@ -156,14 +148,6 @@ public class User implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
 	}
 
 	public String getGender() {
@@ -332,7 +316,7 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password
-				+ ", firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
+				+ ", firstName=" + firstName + ", middleName="  + ", lastName=" + lastName
 				+ ", email=" + email + "]";
 	}
 	

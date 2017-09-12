@@ -28,7 +28,7 @@
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="<c:url value='/static/images/fav.png' />" />
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
+<body>
 <!-- Header
     ================================================= -->
 		<header id="header" class="lazy-load">
@@ -54,7 +54,7 @@
     <!--Header End-->
 
    <div class="google-maps">
-      <div id="map" class="map contact-map"></div>
+      <div id="banner-sg" class="map contact-map"></div>
     </div>
     <div id="page-contents">
     	<div class="container">
@@ -62,76 +62,99 @@
     			<div class="col-md-10 col-md-offset-1">
             <div class="contact-us">
             	<div class="row">
-            		<div class="col-md-8 col-sm-7">
-                  <h4 class="grey">Create a new account</h4>
-										<form:form class="contact-form" method="POST" modelAttribute="signup">
-											<div class="col-md-6 col-sm-6">
+            		<div class="col-md-12 col-sm-12">
+                  <h3 class="grey">Create a new account</h3>
+										<form:form id="myForm" class="contact-form" method="POST" modelAttribute="signup">
+											<div class="col-md-4 col-sm-4">
 												<div class="form-group">
 													<form:input id="ssoid" path="ssoId"
 														type="text" class="form-control"
 														placeholder="User name" required="required"
-														data-error="User Name is required."/>
+														data-error="User name is required."/>
+												</div>
+												<div class="has-error">
+													<form:errors path="ssoId" class="help-inline" />
 												</div>
 												<div class="form-group">
 													<form:input id="password" path="password"
-														type="text" name="password" class="form-control"
+														type="password"  class="form-control"
 														placeholder="Password" required="required"
 														data-error="Password is required."/>
 												</div>
-												<div class="form-group">
-													<form:input id="firstname" path="firstName"
-														type="text" name="firstName" class="form-control"
-														placeholder="First name" required="required"
-														data-error="firstname is required."/>
-												</div>
-												<div class="form-group">
-													<form:input id="lastname" path="lastName"
-														type="text" name="lastName" class="form-control"
-														placeholder="Last name" required="required"
-														data-error="Last name is required."/>
-												</div>
+												
 												<div class="form-group">
 													<form:input id="email" path="email"
 														type="text" name="email" class="form-control"
 														placeholder="Email" required="required"
 														data-error="Email is required."/>
 												</div>
+												<div class="has-error">
+													<form:errors path="email" class="help-inline" />
+												</div>
 												<div class="form-group">
 													<form:input id="birthday" path="birthday"
-														class="datepicker form-control" type="text" name="birthday"
-														placeholder="Birthday" required="required"
-														data-error="Birthday is required."/>
+														class="datepicker form-control" type="text" 
+														placeholder="Birthday -- MM/dd/yyyy"/>
 												</div>
-<!-- 												<div class="form-group"> -->
-<%-- 													<label>Gender</label><br /><form:input id="male" --%>
-<%-- 														type="radio" name="gender" path="gender" value="Male"/> Male  --%>
-<%-- 														<form:input id="female" --%>
-<%-- 														type="radio" name="gender" path="gender" value="Male"/> Female --%>
-<!-- 												</div> -->
+												<div class="has-error">
+													<form:errors path="birthday" class="help-inline" />
+												</div>
+												<div class="funkyradio">
+											        <div class="funkyradio-default">
+												    <input type="radio" name="gender" id="radio1" value="1" checked/> <label
+													for="radio1"> Male</label>
+											       </div>
+											       <div class="funkyradio-primary">
+												   <input type="radio" name="gender" id="radio2" value="0"/> <label
+													for="radio2"> Female</label>
+											      </div>
+										        </div>
 		
 											</div>
 		
-											<div class="col-md-6 col-sm-6">
+											<div class="col-md-4 col-sm-4">
+											<div class="form-group">
+													<form:input id="firstname" path="firstName"
+														type="text" class="form-control"
+														placeholder="First name" required="required"
+														data-error="Firstname is required."/>
+												</div>
+												<div class="form-group">
+													<form:input id="lastname" path="lastName"
+														type="text" class="form-control"
+														placeholder="Last name" required="required"
+														data-error="Last name is required."/>
+												</div>
 		
 												<div class="form-group">
 													<form:input id="address" path="address"
-														type="text" name="address" class="form-control"
-														placeholder="Address" required="required"
-														data-error="Address is required."/>
+														type="text" class="form-control"
+														placeholder="Address"/>
 												</div>
 												<div class="form-group">
 													<form:input path="contactNumber"
-														id="contact_number" type="text" name="contact_number"
+														id="contact_number" type="text" 
 														class="form-control"
 														placeholder="Contact number"
-														required="required" data-error="Contact number is required."/>
+														/>
 												</div>
 												<div class="form-group">
-													<form:input id="description" path="description"
-														type="text" name="description" class="form-control"
-														placeholder="Description"/>
-												</div>
-												<div class="form-group">
+										        <div class="funkyradio">
+											        <div class="funkyradio-default">
+												    <input type="radio" name="endDatetime" id="radio1" checked/> <label
+													for="radio1"> Monthly 50$</label>
+											       </div>
+											       <div class="funkyradio-primary">
+												   <input type="radio" name="endDatetime" id="radio2" value="01/01/1900"/> <label
+													for="radio2"> Yearly 500$</label>
+											      </div>
+										        </div>
+										        </div>
+												
+											
+									        </div>
+									        <div class="col-md-4 col-sm-4">
+														<div class="form-group">
 													<form:select path="motherTongue" multiple="false"
 														class="form-control" id="select">
 														<form:option class="form-control" value=""
@@ -198,10 +221,30 @@
 														<form:option class="form-control" value="Viet Nam" label="Viet Nam"></form:option>
 													</form:select>
 												</div>
-											</div>
-										</form:form>
-                  <button class="btn-primary">Send a Message</button>
+												<div class="form-group">
+													<form:textarea id="description" path="description"
+														rows="4" class="form-control"
+														placeholder="Description"/>
+												</div>
+												
+												<div class="form-group hide">
+													<form:input type="text" path="userProfiles" 
+													class="form-control" value="1"/>
+												</div>
+									        </div>
+									        </form:form>
+									        
+                  
                 </div>
+                <div class="col-md-8 col-sm-12">
+                <p style="font-size: 12px; padding-bottom: 15px" class="grey">By clicking Create Account, you agree to our Terms and 
+                confirm that you have read our Data Policy, 
+                including our Cookie Use Policy. 
+			    You may receive SMS message notifications from Friend Finder and can opt out at any time.</p>
+                <input type="submit" form="myForm" value="Create Account"
+												class="btn btn-primary btn-lg" /> or <a
+												href="<c:url value='/login' />">Signin</a>
+			    </div>
     
             	</div>
             </div>
@@ -271,7 +314,7 @@
       	</div>
       </div>
       <div class="copyright">
-        <p>copyright @thunder-team 2016. All rights reserved</p>
+        <p>copyright @duyetdk-team 2017. All rights reserved</p>
       </div>
 		</footer>
 
@@ -292,44 +335,12 @@
 	<script>
 		$( document ).ready(function() {
 			$(".datepicker").datepicker({
-				altFormat: "yy-mm-dd",
+				altFormat: "MM/dd/yyyy",
 				maxDate: "0d",
 				changeMonth : true,
 				changeYear : true,
 				showButtonPanel : true
-			});
-			
-			$("#test").on('click', function(event) {
-			    // Make sure this.hash has a value before overriding default behavior
-			    if (this.hash !== "") {
-			      // Prevent default anchor click behavior
-			      event.preventDefault();
-
-			      // Store hash
-			      var hash = this.hash;
-
-			      // Using jQuery's animate() method to add smooth page scroll
-			      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-			      $('html, body').animate({
-			        scrollTop: $(hash).offset().top
-			      }, 900, function(){
-			   
-			        // Add hash (#) to URL when done scrolling (default click behavior)
-			        window.location.hash = hash;
-			      });
-			    } // End if
-			  });
-			
-			$(window).scroll(function() {
-			    $(".slideanim").each(function(){
-			      var pos = $(this).offset().top;
-
-			      var winTop = $(window).scrollTop();
-			        if (pos < winTop + 600) {
-			          $(this).addClass("slide");
-			        }
-			    });
-			  });
+			});	
 		});
 		
 	</script>

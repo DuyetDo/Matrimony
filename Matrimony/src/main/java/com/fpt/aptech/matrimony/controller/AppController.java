@@ -1,5 +1,9 @@
 package com.fpt.aptech.matrimony.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -55,6 +59,12 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "timeline";
 	}
+	
+	@RequestMapping(value = { "/search" })
+	public String search(ModelMap model) {
+		model.addAttribute("loggedinuser", getPrincipal());
+		return "search";
+	}
 
 	/**
 	 * This method will list all existing users.
@@ -77,10 +87,28 @@ public class AppController {
 	
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.POST)
 	public String register(@Valid User user, BindingResult result, ModelMap model) {
-
-		if (result.hasErrors()) {
-			return "signup";
+		
+		Calendar now = Calendar.getInstance();
+		
+		if(user.getEndDatetime() == null){
+		    now.add(Calendar.DATE, 30);
+		    user.setEndDatetime(now.getTime());
+		}else {
+			now.add(Calendar.DATE, 365);
+		    user.setEndDatetime(now.getTime());
 		}
+		
+		if("1".equals(user.getGender())){
+			user.setGender("Male");
+		}
+		
+		if("0".equals(user.getGender())){
+			user.setGender("Female");
+		}
+		
+//		if (result.hasErrors()) {
+//			return "signup";
+//		}
 
 		if (!userService.isUserSSOUnique(user.getSsoId())) {
 			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",

@@ -27,7 +27,7 @@
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="<c:url value='/static/images/fav.png' />" />
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
+<body>
 <!-- Header
     ================================================= -->
 		<header id="header" class="lazy-load">
@@ -98,7 +98,11 @@
 					<img class="form-shadow" src="<c:url value='/static/images/bottom-shadow.png' />" alt="" />
 				</div><!-- Sign In Form End -->
 
-       
+       <svg class="arrows hidden-xs hidden-sm">
+          <path class="a1" d="M0 0 L30 32 L60 0"></path>
+          <path class="a2" d="M0 20 L30 52 L60 20"></path>
+          <path class="a3" d="M0 40 L30 72 L60 40"></path>
+        </svg>
 			</div>
 		</section>
 
@@ -107,6 +111,17 @@
 		
     <!-- Download Section
     ================================================= -->
+    <section id="app-download">
+			<div class="container wrapper">
+				<h1 class="section-title slideDown">download</h1>
+				<ul class="app-btn list-inline slideUp">
+					<li><button class="btn-secondary"><img src="<c:url value='/static/images/app-store.png' />" alt="App Store" /></button></li>
+					<li><button class="btn-secondary"><img src="<c:url value='/static/images/google-play.png' />" alt="Google Play" /></button></li>
+				</ul>
+				<h2 class="sub-title">stay connected anytime, anywhere</h2>
+				<img src="<c:url value='/static/images/iPhone.png' />" alt="iPhone" class="img-responsive" />
+			</div>
+		</section>
 		
 
     <!-- Image Divider
@@ -181,7 +196,7 @@
       	</div>
       </div>
       <div class="copyright">
-        <p>copyright @thunder-team 2016. All rights reserved</p>
+        <p>copyright @duyetdk-team 2017. All rights reserved</p>
       </div>
 		</footer>
 

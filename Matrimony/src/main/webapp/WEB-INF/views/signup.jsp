@@ -28,7 +28,7 @@
     <!--Favicon-->
     <link rel="shortcut icon" type="image/png" href="<c:url value='/static/images/fav.png' />" />
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
+<body>
 <!-- Header
     ================================================= -->
 		<header id="header" class="lazy-load">
@@ -70,7 +70,10 @@
 													<form:input id="ssoid" path="ssoId"
 														type="text" class="form-control"
 														placeholder="User name" required="required"
-														data-error="User Name is required."/>
+														data-error="User name is required."/>
+												</div>
+												<div class="has-error">
+													<form:errors path="ssoId" class="help-inline" />
 												</div>
 												<div class="form-group">
 													<form:input id="password" path="password"
@@ -85,19 +88,24 @@
 														placeholder="Email" required="required"
 														data-error="Email is required."/>
 												</div>
+												<div class="has-error">
+													<form:errors path="email" class="help-inline" />
+												</div>
 												<div class="form-group">
 													<form:input id="birthday" path="birthday"
-														class="datepicker form-control" type="text" name="birthday"
-														placeholder="Birthday -- MM/dd/yyyy" required="required"
-														data-error="Birthday is required."/>
+														class="datepicker form-control" type="text" 
+														placeholder="Birthday -- MM/dd/yyyy"/>
+												</div>
+												<div class="has-error">
+													<form:errors path="birthday" class="help-inline" />
 												</div>
 												<div class="funkyradio">
 											        <div class="funkyradio-default">
-												    <input type="radio" name="gender" id="radio1" value="Male" checked/> <label
+												    <input type="radio" name="gender" id="radio1" value="1" checked/> <label
 													for="radio1"> Male</label>
 											       </div>
 											       <div class="funkyradio-primary">
-												   <input type="radio" name="gender" id="radio2" value="Female"/> <label
+												   <input type="radio" name="gender" id="radio2" value="0"/> <label
 													for="radio2"> Female</label>
 											      </div>
 										        </div>
@@ -107,29 +115,28 @@
 											<div class="col-md-4 col-sm-4">
 											<div class="form-group">
 													<form:input id="firstname" path="firstName"
-														type="text" name="firstName" class="form-control"
+														type="text" class="form-control"
 														placeholder="First name" required="required"
 														data-error="Firstname is required."/>
 												</div>
 												<div class="form-group">
 													<form:input id="lastname" path="lastName"
-														type="text" name="lastName" class="form-control"
+														type="text" class="form-control"
 														placeholder="Last name" required="required"
 														data-error="Last name is required."/>
 												</div>
 		
 												<div class="form-group">
 													<form:input id="address" path="address"
-														type="text" name="address" class="form-control"
-														placeholder="Address" required="required"
-														data-error="Address is required."/>
+														type="text" class="form-control"
+														placeholder="Address"/>
 												</div>
 												<div class="form-group">
 													<form:input path="contactNumber"
-														id="contact_number" type="text" name="contact_number"
+														id="contact_number" type="text" 
 														class="form-control"
 														placeholder="Contact number"
-														required="required" data-error="Contact number is required."/>
+														/>
 												</div>
 												<div class="form-group">
 										        <div class="funkyradio">
@@ -138,7 +145,7 @@
 													for="radio1"> Monthly 50$</label>
 											       </div>
 											       <div class="funkyradio-primary">
-												   <input type="radio" name="endDatetime" id="radio2"/> <label
+												   <input type="radio" name="endDatetime" id="radio2" value="01/01/1900"/> <label
 													for="radio2"> Yearly 500$</label>
 											      </div>
 										        </div>
@@ -216,8 +223,13 @@
 												</div>
 												<div class="form-group">
 													<form:textarea id="description" path="description"
-														rows="4" name="description" class="form-control"
+														rows="4" class="form-control"
 														placeholder="Description"/>
+												</div>
+												
+												<div class="form-group hide">
+													<form:input type="text" path="userProfiles" 
+													class="form-control" value="1"/>
 												</div>
 									        </div>
 									        </form:form>
@@ -302,7 +314,7 @@
       	</div>
       </div>
       <div class="copyright">
-        <p>copyright @thunder-team 2016. All rights reserved</p>
+        <p>copyright @duyetdk-team 2017. All rights reserved</p>
       </div>
 		</footer>
 
@@ -323,44 +335,12 @@
 	<script>
 		$( document ).ready(function() {
 			$(".datepicker").datepicker({
-				altFormat: "yy-mm-dd",
+				altFormat: "MM/dd/yyyy",
 				maxDate: "0d",
 				changeMonth : true,
 				changeYear : true,
 				showButtonPanel : true
-			});
-			
-			$("#test").on('click', function(event) {
-			    // Make sure this.hash has a value before overriding default behavior
-			    if (this.hash !== "") {
-			      // Prevent default anchor click behavior
-			      event.preventDefault();
-
-			      // Store hash
-			      var hash = this.hash;
-
-			      // Using jQuery's animate() method to add smooth page scroll
-			      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-			      $('html, body').animate({
-			        scrollTop: $(hash).offset().top
-			      }, 900, function(){
-			   
-			        // Add hash (#) to URL when done scrolling (default click behavior)
-			        window.location.hash = hash;
-			      });
-			    } // End if
-			  });
-			
-			$(window).scroll(function() {
-			    $(".slideanim").each(function(){
-			      var pos = $(this).offset().top;
-
-			      var winTop = $(window).scrollTop();
-			        if (pos < winTop + 600) {
-			          $(this).addClass("slide");
-			        }
-			    });
-			  });
+			});	
 		});
 		
 	</script>
