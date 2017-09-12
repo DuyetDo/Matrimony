@@ -1,5 +1,6 @@
 package com.fpt.aptech.matrimony.service;
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fpt.aptech.matrimony.dao.AppUserFeeDao;
 import com.fpt.aptech.matrimony.dao.UserDao;
+import com.fpt.aptech.matrimony.model.AppUserFee;
 import com.fpt.aptech.matrimony.model.User;
 
 
@@ -17,6 +20,9 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserDao dao;
+	
+	@Autowired
+	private AppUserFeeDao aufDao;
 
 	@Autowired
     private PasswordEncoder passwordEncoder;
@@ -30,17 +36,29 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+	@Transactional
 	public void saveUser(User user) {
+		Calendar now = Calendar.getInstance();
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setCreateDatetime(now.getTime());
 		user.setActive(true);
 		dao.save(user);
+		
+		AppUserFee auf = new AppUserFee();
+		
+		auf.setSsoId(user.getSsoId());
+		auf.setCreateDatetime(now.getTime());
+		if(user.getType() == 1){
+			auf.setFeeId(1);
+			auf.setValue(50D);
+		}else if(user.getType() == 2){
+			auf.setFeeId(2);
+			auf.setValue(500D);
+		}
+		
+		aufDao.save(auf);
 	}
 
-	/*
-	 * Since the method is running with Transaction, No need to call hibernate update explicitly.
-	 * Just fetch the entity from db and update it with proper values within transaction.
-	 * It will be updated in db once transaction ends. 
-	 */
 	public void updateUser(User user) {
 		User entity = dao.findById(user.getId());
 		if(entity!=null){

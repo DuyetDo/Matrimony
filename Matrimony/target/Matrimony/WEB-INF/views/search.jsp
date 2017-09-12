@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>     
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -43,9 +48,16 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right main-menu">
-              <li class="dropdown"><a href="index.html">Home</a></li>
+				<li class="dropdown"><a href="<c:url value="/" />"> <img
+						src="<c:url value='/static/images/users/user-21.jpg' />" alt=""
+						class="profile-photo-smm" /> ${loggedinuser}
+				</a></li>
+				<sec:authorize access="hasRole('ADMIN')">
+					<li class="dropdown"><a href="index.html">Admin</a></li>
+				</sec:authorize>
+				<li class="dropdown"><a href="index.html">Home</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="<c:url value='/static/images/fav.png' />images/down-arrow.png" alt="" /></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="<c:url value='/static/images/down-arrow.png' />" alt="" /></span></a>
                   <ul class="dropdown-menu newsfeed-home">
                     <li><a href="newsfeed.html">Newsfeed</a></li>
                     <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
@@ -56,7 +68,7 @@
                   </ul>
               </li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="<c:url value='/static/images/fav.png' />images/down-arrow.png" alt="" /></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="<c:url value='/static/images/down-arrow.png' />" alt="" /></span></a>
                 <ul class="dropdown-menu login">
                   <li><a href="timeline.html">Timeline</a></li>
                   <li><a href="timeline-about.html">Timeline About</a></li>
@@ -64,29 +76,13 @@
                   <li><a href="timeline-friends.html">Timeline Friends</a></li>
                 </ul>
               </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Pages <span><img src="<c:url value='/static/images/fav.png' />images/down-arrow.png" alt="" /></span></a>
-                <ul class="dropdown-menu page-list">
-                  <li><a href="index.html">Landing Page</a></li>
-                  <li><a href="newsfeed.html">Newsfeed</a></li>
-                  <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
-                  <li><a href="newsfeed-friends.html">My friends</a></li>
-                  <li><a href="newsfeed-messages.html">Chatroom</a></li>
-                  <li><a href="newsfeed-images.html">Images</a></li>
-                  <li><a href="newsfeed-videos.html">Videos</a></li>
-                  <li><a href="timeline.html">Timeline</a></li>
-                  <li><a href="timeline-about.html">Timeline About</a></li>
-                  <li><a href="timeline-album.html">Timeline Album</a></li>
-                  <li><a href="timeline-friends.html">Timeline Friends</a></li>
-                  <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a href="contact.html">Contact</a></li>
+              <li class="dropdown"><a href="<c:url value="/logout" />">Log Out</a></li>
             </ul>
             <form class="navbar-form navbar-right hidden-sm">
               <div class="form-group">
                 <i class="icon ion-android-search"></i>
                 <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+                <a href="<c:url value="/search" />"><span class="glyphicon glyphicon-search"></span></a> 
               </div>
             </form>
           </div><!-- /.navbar-collapse -->

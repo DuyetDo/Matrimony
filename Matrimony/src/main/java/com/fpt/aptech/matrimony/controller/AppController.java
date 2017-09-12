@@ -1,9 +1,7 @@
 package com.fpt.aptech.matrimony.controller;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -90,10 +88,10 @@ public class AppController {
 		
 		Calendar now = Calendar.getInstance();
 		
-		if(user.getEndDatetime() == null){
+		if(user.getType() == 1){
 		    now.add(Calendar.DATE, 30);
 		    user.setEndDatetime(now.getTime());
-		}else {
+		}else if(user.getType() == 2){
 			now.add(Calendar.DATE, 365);
 		    user.setEndDatetime(now.getTime());
 		}
@@ -106,9 +104,9 @@ public class AppController {
 			user.setGender("Female");
 		}
 		
-//		if (result.hasErrors()) {
-//			return "signup";
-//		}
+		if (result.hasErrors()) {
+			return "signup";
+		}
 
 		if (!userService.isUserSSOUnique(user.getSsoId())) {
 			FieldError ssoError = new FieldError("user", "ssoId", messageSource.getMessage("non.unique.ssoId",

@@ -1,9 +1,12 @@
 package com.fpt.aptech.matrimony.model;
 // Generated Sep 11, 2017 11:39:01 PM by Hibernate Tools 5.2.3.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,7 +21,7 @@ import javax.persistence.TemporalType;
 public class AppUserFee implements java.io.Serializable {
 
 	private long id;
-	private long userId;
+	private String ssoId;
 	private int feeId;
 	private Date createDatetime;
 	private Double value;
@@ -26,21 +29,22 @@ public class AppUserFee implements java.io.Serializable {
 	public AppUserFee() {
 	}
 
-	public AppUserFee(long id, long userId, int feeId) {
+	public AppUserFee(long id, String ssoId, int feeId) {
 		this.id = id;
-		this.userId = userId;
+		this.ssoId = ssoId;
 		this.feeId = feeId;
 	}
 
-	public AppUserFee(long id, long userId, int feeId, Date createDatetime, Double value) {
+	public AppUserFee(long id, String ssoId, int feeId, Date createDatetime, Double value) {
 		this.id = id;
-		this.userId = userId;
+		this.ssoId = ssoId;
 		this.feeId = feeId;
 		this.createDatetime = createDatetime;
 		this.value = value;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "id", unique = true, nullable = false)
 	public long getId() {
@@ -51,13 +55,13 @@ public class AppUserFee implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "user_id", nullable = false)
-	public long getUserId() {
-		return this.userId;
+	@Column(name = "sso_id", nullable = false, length = 30)
+	public String getSsoId() {
+		return this.ssoId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setSsoId(String ssoId) {
+		this.ssoId = ssoId;
 	}
 
 	@Column(name = "fee_id", nullable = false)

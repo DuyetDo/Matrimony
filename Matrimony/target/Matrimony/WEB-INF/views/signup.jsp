@@ -141,11 +141,11 @@
 												<div class="form-group">
 										        <div class="funkyradio">
 											        <div class="funkyradio-default">
-												    <input type="radio" name="endDatetime" id="radio1" checked/> <label
+												    <input type="radio" name="isActive" id="radio1" value="1" checked/> <label
 													for="radio1"> Monthly 50$</label>
 											       </div>
 											       <div class="funkyradio-primary">
-												   <input type="radio" name="endDatetime" id="radio2" value="01/01/1900"/> <label
+												   <input type="radio" name="isActive" id="radio2" value="0"/> <label
 													for="radio2"> Yearly 500$</label>
 											      </div>
 										        </div>
