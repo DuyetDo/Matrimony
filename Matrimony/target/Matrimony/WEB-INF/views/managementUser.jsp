@@ -100,6 +100,7 @@
     ================================================= -->
     <section id="app-download">
 			<div class="container wrapper">
+			<h2 class="sub-title">User Management</h2>
 				<table id="example" class="display" width="100%" cellspacing="0">
         <thead>
             <tr>
@@ -108,8 +109,8 @@
                 <th>Email</th>
                 <th>Birthday</th>
                 <th>Country</th>
-                <th>Create Date</th>
-                <th>End Date</th>
+                <th>Create Datetime</th>
+                <th>End Datetime</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -121,8 +122,8 @@
                 <th>Email</th>
                 <th>Birthday</th>
                 <th>Country</th>
-                <th>Create Date</th>
-                <th>End Date</th>
+                <th>Create Datetime</th>
+                <th>End Datetime</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -139,9 +140,9 @@
 						<td><fmt:formatDate pattern="dd-MM-yyyy"
 								 value="${birthday}" /></td>
 					    <td>${user.countryLivingIn}</td>			 
-						<td><fmt:formatDate pattern="dd-MM-yyyy"
+						<td><fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 								 value="${create}" /></td>
-						<td><fmt:formatDate pattern="dd-MM-yyyy"
+						<td><fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 								 value="${end}" /></td>		 
 						<td><a href="<c:url value='/edit-user-${user.id}' />"
 								class="glyphicon glyphicon-pencil"></a></td>

@@ -92,5 +92,10 @@ public class UserServiceImpl implements UserService{
 		User user = findBySSO(sso);
 		return ( user == null);
 	}
+
+	@Override
+	public List<User> findFriends(String keyword) {
+		return dao.findFriends(keyword);
+	}
 	
 }

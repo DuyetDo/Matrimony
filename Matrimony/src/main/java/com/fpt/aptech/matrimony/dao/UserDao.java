@@ -16,7 +16,7 @@ public interface UserDao {
 	
 	List<User> findAllUsers();
 	
-	List<User> findFriend(String keyword);
+	List<User> findFriends(String keyword);
 
 }
 

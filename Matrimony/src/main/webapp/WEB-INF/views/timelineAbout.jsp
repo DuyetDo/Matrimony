@@ -89,9 +89,9 @@
             </ul>
             <form class="navbar-form navbar-right hidden-sm">
               <div class="form-group">
-                <i class="icon ion-android-search"></i>
+                <a  href="<c:url value="/search-user-a" />" ><i class="icon ion-android-search"></i></a>
                 <input type="text" class="form-control" placeholder="Search friends, photos, videos">
-                <a href="<c:url value="/search" />"><span class="glyphicon glyphicon-search"></span></a>
+                
               </div>
             </form>
           </div><!-- /.navbar-collapse -->

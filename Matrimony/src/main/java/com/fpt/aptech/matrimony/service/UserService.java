@@ -19,6 +19,8 @@ public interface UserService {
 
 	List<User> findAllUsers(); 
 	
+	List<User> findFriends(String keyword);
+	
 	boolean isUserSSOUnique(String sso);
 
 }

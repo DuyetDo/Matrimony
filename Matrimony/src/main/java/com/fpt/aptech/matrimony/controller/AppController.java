@@ -58,8 +58,10 @@ public class AppController {
 		return "timeline";
 	}
 	
-	@RequestMapping(value = { "/search" })
-	public String search(ModelMap model) {
+	@RequestMapping(value = { "/search-user-{keyword}" })
+	public String search(@PathVariable String keyword, ModelMap model) {
+		List<User> users = userService.findFriends(keyword);
+		model.addAttribute("friends", users);
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "search";
 	}

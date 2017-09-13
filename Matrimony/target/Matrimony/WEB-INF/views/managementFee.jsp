@@ -100,13 +100,14 @@
     ================================================= -->
     <section id="app-download">
 			<div class="container wrapper">
+			<h2 class="sub-title">Fee Management</h2>
 				<table id="example" class="display" width="100%" cellspacing="0">
         <thead>
             <tr>
                 <th>Username</th>
                 <th>Fee ID</th>
-                <th>Value</th>
-                <th>Create Date</th>
+                <th>Value($)</th>
+                <th>Create Datetime</th>
                 <th></th>
             </tr>
         </thead>
@@ -114,19 +115,21 @@
             <tr>
                 <th>Username</th>
                 <th>Fee ID</th>
-                <th>Value</th>
-                <th>Create Date</th>
+                <th>Value($)</th>
+                <th>Create Datetime</th>
                 <th></th>
             </tr>
         </tfoot>
         <tbody>
 				<c:forEach items="${aufList}" var="auf">
 				<c:set var="create" value="${auf.createDatetime}"></c:set>
+				<c:set var="value" value="${auf.value}"></c:set>
 					<tr>
 						<td>${auf.ssoId}</td>
 						<td>${auf.feeId}</td>
-						<td>${auf.createDatetime}</td>
-						<td><fmt:formatDate pattern="dd-MM-yyyy"
+						<td><fmt:formatNumber type="number"
+							maxFractionDigits="9" value="${value}" /></td>
+						<td><fmt:formatDate pattern="dd-MM-yyyy HH:mm:ss"
 								 value="${create}" /></td>
 						<td><a href="<c:url value='/edit-user-${auf.id}' />"
 								class="glyphicon glyphicon-pencil"></a></td>

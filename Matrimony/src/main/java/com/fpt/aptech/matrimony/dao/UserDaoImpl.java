@@ -43,14 +43,6 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 																		// duplicates.
 		List<User> users = (List<User>) criteria.list();
 
-		// No need to fetch userProfiles since we are not showing them on list
-		// page. Let them lazy load.
-		// Uncomment below lines for eagerly fetching of userProfiles if you
-		// want.
-		/*
-		 * for(User user : users){ Hibernate.initialize(user.getUserProfiles());
-		 * }
-		 */
 		return users;
 	}
 
@@ -67,9 +59,33 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<User> findFriend(String keyword) {
-		return null;
+	public List<User> findFriends(String keyword) {
+		if (keyword == null) {
+			return null;
+		}
+		
+		Criteria criteria = createEntityCriteria().addOrder(Order.asc("ssoId"));
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);// To avoid
+																		// duplicates.
+		criteria.add(Restrictions.like("ssoId","%" + keyword + "%"));
+//		criteria.add(Restrictions.or(Restrictions.eq("email",keyword)));
+//		criteria.add(Restrictions.eq("lastName", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("gender", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("martialStatus", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("address", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("countryLivingIn", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("contactNumber", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("motherTongue", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("religion", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("caste", "%" + keyword + "%"));
+//		criteria.add(Restrictions.eq("description", "%" + keyword + "%"));
+		criteria.add(Restrictions.eq("isActive", true));
+
+		List<User> users = (List<User>) criteria.list();
+
+		return users;
 	}
 
 }
