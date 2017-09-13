@@ -52,7 +52,17 @@
 						class="profile-photo-smm" /> ${loggedinuser}
 				</a></li>
 				<sec:authorize access="hasRole('ADMIN')">
-					<li class="dropdown"><a href="index.html">Admin</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false">Admin
+							<span><img
+								src="<c:url value='/static/images/down-arrow.png' />" alt="" /></span>
+					    </a>
+						<ul class="dropdown-menu newsfeed-home">
+							<li><a href="<c:url value="/usersList" />">User Management</a></li>
+							<li><a href="<c:url value="/feesList" />">Fee Management</a></li>
+						</ul>
+					</li>
 				</sec:authorize>
 				<li class="dropdown"><a href="index.html">Home</a></li>
               <li class="dropdown">

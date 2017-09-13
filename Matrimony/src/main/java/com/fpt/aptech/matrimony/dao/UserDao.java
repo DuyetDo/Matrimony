@@ -15,6 +15,8 @@ public interface UserDao {
 	void deleteById(int id);
 	
 	List<User> findAllUsers();
+	
+	List<User> findFriend(String keyword);
 
 }
 

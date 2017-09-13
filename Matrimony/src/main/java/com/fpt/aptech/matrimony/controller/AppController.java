@@ -63,6 +63,7 @@ public class AppController {
 		model.addAttribute("loggedinuser", getPrincipal());
 		return "search";
 	}
+	
 
 	/**
 	 * This method will list all existing users.
@@ -73,7 +74,7 @@ public class AppController {
 		List<User> users = userService.findAllUsers();
 		model.addAttribute("users", users);
 		model.addAttribute("loggedinuser", getPrincipal());
-		return "usersList";
+		return "managementUser";
 	}
 	
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.GET)

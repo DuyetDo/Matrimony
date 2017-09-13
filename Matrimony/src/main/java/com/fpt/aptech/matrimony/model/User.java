@@ -91,7 +91,7 @@ public class User implements Serializable{
 	private boolean isActive;
 	
 	@Column(name = "type")
-	private int type;
+	private Integer type;
 
 	@Email
 	@NotBlank
@@ -280,12 +280,12 @@ public class User implements Serializable{
 	public void setUserProfiles(Set<UserProfile> userProfiles) {
 		this.userProfiles = userProfiles;
 	}
-	
-	public int getType() {
+
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 

@@ -67,4 +67,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 		}
 	}
 
+	@Override
+	public List<User> findFriend(String keyword) {
+		return null;
+	}
+
 }

@@ -23,6 +23,7 @@
 /Users/dokhacduyet/WORK/Matrimony/Matrimony/src/main/java/com/fpt/aptech/matrimony/configuration/HibernateConfiguration.java
 /Users/dokhacduyet/WORK/Matrimony/Matrimony/src/main/java/com/fpt/aptech/matrimony/model/UserDocument.java
 /Users/dokhacduyet/WORK/Matrimony/Matrimony/src/main/java/com/fpt/aptech/matrimony/service/AppUserFeeServiceImpl.java
+/Users/dokhacduyet/WORK/Matrimony/Matrimony/src/main/java/com/fpt/aptech/matrimony/controller/AppUserFeeController.java
 /Users/dokhacduyet/WORK/Matrimony/Matrimony/src/main/java/com/fpt/aptech/matrimony/model/Fee.java
 /Users/dokhacduyet/WORK/Matrimony/Matrimony/src/main/java/com/fpt/aptech/matrimony/dao/UserDaoImpl.java
 /Users/dokhacduyet/WORK/Matrimony/Matrimony/src/main/java/com/fpt/aptech/matrimony/model/UserProfile.java

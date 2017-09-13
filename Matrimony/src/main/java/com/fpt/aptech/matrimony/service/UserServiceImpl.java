@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService{
 		Calendar now = Calendar.getInstance();
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setCreateDatetime(now.getTime());
+	
 		user.setActive(true);
 		dao.save(user);
 		
