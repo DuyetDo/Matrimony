@@ -90,8 +90,8 @@
             </ul>
             <form class="navbar-form navbar-right hidden-sm">
               <div class="form-group">
-                <a  href="<c:url value="/search-user-a" />" ><i class="icon ion-android-search"></i></a>
-                <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+                <a onclick="search()" href="javascript:void(0)" id="request" ><i class="icon ion-android-search"></i></a>
+                <input id="inputsearch" type="text" class="form-control" placeholder="Search friends, photos, videos">
                 
               </div>
             </form>
@@ -420,5 +420,12 @@
     <script src="<c:url value='/static/js/jquery.sticky-kit.min.js'/>"></script>
 	<script src="<c:url value='/static/js/jquery.scrollbar.min.js'/>"></script>
     <script src="<c:url value='/static/js/script.js'/>"></script>
+    <script type="text/javascript">
+    function search(){
+			var a = '/search-user-';
+			var b= $('#inputsearch').val();
+			window.location = a+b;
+        }
+    </script>
 </body>
 </html>

@@ -90,6 +90,4 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return converter;
     }
 
-
-
 }
