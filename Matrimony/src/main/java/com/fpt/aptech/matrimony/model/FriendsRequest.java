@@ -20,19 +20,19 @@ import javax.persistence.TemporalType;
 public class FriendsRequest implements java.io.Serializable {
 
 	private Long id;
-	private Long idUserRequest;
-	private Long idUserReceive;
-	private Boolean status;
+	private String userRequest;
+	private String userReceive;
+	private Integer status;
 	private Date createDatetime;
 	private Date updateDatetime;
 
 	public FriendsRequest() {
 	}
 
-	public FriendsRequest(Long idUserRequest, Long idUserReceive, Boolean status, Date createDatetime,
+	public FriendsRequest(String userRequest, String userReceive, Integer status, Date createDatetime,
 			Date updateDatetime) {
-		this.idUserRequest = idUserRequest;
-		this.idUserReceive = idUserReceive;
+		this.userRequest = userRequest;
+		this.userReceive = userReceive;
 		this.status = status;
 		this.createDatetime = createDatetime;
 		this.updateDatetime = updateDatetime;
@@ -50,30 +50,30 @@ public class FriendsRequest implements java.io.Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "id_user_request")
-	public Long getIdUserRequest() {
-		return this.idUserRequest;
+	@Column(name = "user_request", nullable=false, length = 30)
+	public String getUserRequest() {
+		return this.userRequest;
 	}
 
-	public void setIdUserRequest(Long idUserRequest) {
-		this.idUserRequest = idUserRequest;
+	public void setUserRequest(String userRequest) {
+		this.userRequest = userRequest;
 	}
 
-	@Column(name = "id_user_receive")
-	public Long getIdUserReceive() {
-		return this.idUserReceive;
+	@Column(name = "user_receive", nullable=false, length = 30)
+	public String getUserReceive() {
+		return this.userReceive;
 	}
 
-	public void setIdUserReceive(Long idUserReceive) {
-		this.idUserReceive = idUserReceive;
+	public void setUserReceive(String userReceive) {
+		this.userReceive = userReceive;
 	}
 
-	@Column(name = "status")
-	public Boolean getStatus() {
+	@Column(name = "status", nullable=false)
+	public Integer getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 

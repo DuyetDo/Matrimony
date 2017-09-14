@@ -27,9 +27,6 @@ public class AppUserFeeController {
 	@Autowired
 	MessageSource messageSource;
 
-	/**
-	 * This method will list all existing users.
-	 */
 	@RequestMapping(value = { "/feesList" }, method = RequestMethod.GET)
 	public String listFees(ModelMap model) {
 		List<AppUserFee> aufs = aufService.findAll();
